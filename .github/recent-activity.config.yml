@@ -1,0 +1,16 @@
+# Configuration for Readme-Workflows/recent-activity
+# Reference: https://github.com/Readme-Workflows/recent-activity
+
+# List of event types to include
+event_types:
+  - IssueCommentEvent
+  - IssuesEvent
+  - PullRequestEvent
+  - PushEvent
+  - ReleaseEvent
+
+# Maximum number of events to show
+max_lines: 10
+
+# Whether to include emojis
+include_emoji: true
