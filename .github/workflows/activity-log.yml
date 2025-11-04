@@ -4,8 +4,6 @@ on:
   schedule:
     - cron: '0 1 * * *'   
   workflow_dispatch:       
-  push:
-    branches: [ main ]     
 
 permissions:
   contents: write
@@ -30,6 +28,7 @@ jobs:
         uses: Readme-Workflows/recent-activity@main
         with:
           GH_USERNAME: AndyTaoTao
+          CONFIG_FILE: ./.github/recent-activity.config.yml
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
 
