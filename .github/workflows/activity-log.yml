@@ -1,21 +1,24 @@
-name: Update Activity Log
+name: Update Activity Log (Daily)
 
 on:
   schedule:
-    - cron: '0 */6 * * *' 
-  workflow_dispatch:
+    - cron: '0 1 * * *'   
+  workflow_dispatch:       
+  push:
+    branches: [ main ]     
 
 permissions:
-  contents: write   
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          persist-credentials: false   
+          persist-credentials: false
 
       - name: Set up Git credentials
         run: |
@@ -33,5 +36,5 @@ jobs:
       - name: Commit and push changes
         run: |
           git add README.md
-          git commit -m "chore: update activity log [skip ci]" || echo "No changes to commit"
+          git commit -m "chore: daily update activity log [skip ci]" || echo "No changes to commit"
           git push
